@@ -12,5 +12,5 @@ jobs:
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
-          docker run -v /tmp/mlruns:/mlflow/ -p 5000:5000 seeloz/mlflow-server
+          docker run -v /tmp/mlruns:/mlflow/ -p http://localhost:5000:5000 seeloz/mlflow-server
 
