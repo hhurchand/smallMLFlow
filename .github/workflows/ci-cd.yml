@@ -30,14 +30,3 @@ jobs:
         with:
           name: mlruns
           path: mlruns
-
-  continuous-deployment:
-    needs: continuous-integration
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "git-heroku-deploy" #Must be unique in Heroku
-          heroku_email: "h.hurchand@gmail.com"
