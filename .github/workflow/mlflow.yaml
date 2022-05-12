@@ -1,0 +1,16 @@
+name: Get Runs From MLflow Tracking remote server
+on: [issue_comment]
+
+jobs:
+  get-runs:
+    if: (github.event.issue.pull_request != null) &&  contains(github.event.comment.body, '/get-runs')
+    runs-on: ubuntu-latest
+
+    steps:
+  - name: Get Runs Using tags
+    uses: alejio/mlflow-tracking-action@master
+    with:
+      MLFLOW_TRACKING_URI: "http://localhost:1234/"
+      EXPERIMENT_ID: "0"
+      BASELINE_RUN_QUERY: "tags.live='1'"
+      CANDIDATE_RUN_QUERY: "production_ready='1'"
