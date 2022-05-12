@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/hhurc/OneDrive/Desktop/Hurry/CoursDeploiement/smallMLFlow.dir/mlruns/0/455f76a5d9d148e69b5cf4391a1f33c8/artifacts
+end_time: 1652248397684
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: 455f76a5d9d148e69b5cf4391a1f33c8
+run_uuid: 455f76a5d9d148e69b5cf4391a1f33c8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1652248391922
+status: 3
+tags: []
+user_id: hhurc
