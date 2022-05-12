@@ -1,15 +1,19 @@
-name: model-wine-quality
-on: [push]
+name: Get Runs From MLflow Tracking remote server
+on: [issue_comment]
+
 jobs:
-  run:
-    runs-on: [ubuntu-latest]
-    container: docker://dvcorg/cml-py3:latest
+  get-runs:
+    if: (github.event.issue.pull_request != null) &&  contains(github.event.comment.body, '/get-runs')
+    runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: cml_run
-        env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Your ML workflow goes here
-          pip install -r requirements.txt
-          python train.py
+  - name: Get Runs Using tags
+    uses: alejio/mlflow-tracking-action@master
+    with:
+      MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+      EXPERIMENT_ID: "0"
+      BASELINE_RUN_QUERY: "tags.live='1'"
+      CANDIDATE_RUN_QUERY: "production_ready='1'"
+
+          
+
